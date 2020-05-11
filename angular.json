@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rtndm"
+    }
+  },
+  "defaultProject": "rtndm",
+  "cli": {
+    "analytics": "ad30be65-e3d1-48da-9eeb-ff32bfa35762"
+  }
 }
