@@ -3,17 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { DeptlistComponent } from './deptlist/deptlist.component';
 import { EmplistComponent } from './emplist/emplist.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DeptDetailComponent } from './dept-detail/dept-detail.component';
 
 
 const routes: Routes = [
   // { path: '', component: DeptlistComponent }, //this is empt path scenario like default 
-  { path: '', redirectTo: '/departments', pathMatch: 'full' }, 
+  { path: ' ', redirectTo: '/departments', pathMatch: 'full' }, 
   // for aboves line explaination 
   //if  URL is "Full" empt then onl it will redirect  to the "departments"
   // we tried "prefix" as pathmatch also but it redirect to "department" for all pages and URL
 
   { path: 'departments', component: DeptlistComponent },
+  { path: 'departments/:id', component: DeptDetailComponent },
   { path: 'employees', component: EmplistComponent },
+  
 
   // this is wildcard route. It should be alwas last in the paths.
   // if an route not found then it will show this "page not found"
@@ -27,4 +30,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponent= [ DeptlistComponent, EmplistComponent ]
+export const routingComponent= [ DeptlistComponent, 
+                                  EmplistComponent,
+                                PageNotFoundComponent,
+                              DeptDetailComponent ]
