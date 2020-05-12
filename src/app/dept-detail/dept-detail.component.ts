@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dept-detail',
   template: `
-    <p>
-      dept-detail works!
-    </p>
+    <h3>
+      U selected department with id = {{deptId}}
+    </h3>
   `,
   styles: [
   ]
 })
 export class DeptDetailComponent implements OnInit {
 
-  constructor() { }
+  public deptId;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let id= parseInt(this.route.snapshot.paramMap.get('id'));
+    this.deptId= id;
   }
 
 }
