@@ -18,7 +18,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 })
 export class DeptDetailComponent implements OnInit {
 
-  public deptId;
+  public deptId: number;
 
   constructor(private route: ActivatedRoute, private router: Router ) { }
 
@@ -35,18 +35,19 @@ export class DeptDetailComponent implements OnInit {
 
   goPrevious(){
     let previousId = this.deptId - 1;
-    this.router.navigate(['/departments', previousId ]);
+    this.router.navigate(['/department-list', previousId ]);
   }  
 
     
   goNext(){
     let nextId = this.deptId + 1;
-    this.router.navigate(['/departments', nextId ]);
+    this.router.navigate(['/department-list', nextId ]);
   }
 
   gotoDept(){
     let selectedId = this.deptId ? this.deptId : null;
-     this.router.navigate(['/departments', {id:selectedId, test: "TestValue"} ]);
+    //  this.router.navigate(['/departments', {id:selectedId, test: "TestValue"} ]);
+    this.router.navigate(['../', {id: selectedId}], {relativeTo: this.route});
   }
 
 }

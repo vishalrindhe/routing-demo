@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router, ParamMap } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-deptlist',
@@ -41,13 +42,12 @@ export class DeptlistComponent implements OnInit {
         }
 
   onSelect(department){
-    this.router.navigate(['/departments', department.id ]);
+    this.router.navigate(['/department-list', department.id ]);
+    // this.router.navigate([department.id],{relativeTo: this.route});
   }
 
-  isSelected(dept){
-    return dept.id === this.selectedId;
-
-
+  isSelected(department){
+    return department.id === this.selectedId;
   }
 
 }
