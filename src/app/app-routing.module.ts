@@ -4,6 +4,8 @@ import { DeptlistComponent } from './deptlist/deptlist.component';
 import { EmplistComponent } from './emplist/emplist.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DeptDetailComponent } from './dept-detail/dept-detail.component';
+import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
+import { DepartmentContactComponent } from './department-contact/department-contact.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,14 @@ const routes: Routes = [
   // we tried "prefix" as pathmatch also but it redirect to "department" for all pages and URL
 
   { path: 'department-list', component: DeptlistComponent },
-  { path: 'department-list/:id', component: DeptDetailComponent },
+  { 
+    path: 'department-list/:id',
+    component: DeptDetailComponent ,
+    children : [
+      {path : 'overview' , component : DepartmentOverviewComponent },
+      {path: 'contact' , component : DepartmentContactComponent }
+                ]
+  },
   { path: 'employees', component: EmplistComponent },
   
 
